@@ -59,6 +59,106 @@ app.delete("/neighbourhoods/:id", async (req, res) => {
   }
 });
 
+app.get("/users", async (req, res) => {
+  try {
+    const allUsers = await User.find();
+    return res.status(200).json(allUsers);
+  } catch (error) {
+    return res.status(500).send("An unknown error occured.");
+  }
+});
+
+app.get("/users/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findById(id);
+    return res.status(200).json(user);
+  } catch (error) {
+    return res.status(500).send("An unknown error occured.");
+  }
+});
+
+app.post("/users", async (req, res) => {
+  try {
+    const newUser = new User({ ...req.body });
+    const insertedUser = await newUser.save();
+    return res.status(201).json(insertedUser);
+  } catch (error) {
+    return res.status(500).send("An unknown error occured.");
+  }
+});
+
+app.put("users/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    await User.updateOne({ id }, req.body);
+    const updatedUser = await User.findById(id);
+    return res.status(200).json(updatedUser);
+  } catch (error) {
+    return res.status(500).send("An unknown error occured.");
+  }
+});
+
+app.delete("/users/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedUser = await User.findByIdAndDelete(id);
+    return res.status(200).json(deletedUser);
+  } catch (error) {
+    return res.status(500).send("An unknown error occured.");
+  }
+});
+
+app.get("/posts", async (req, res) => {
+  try {
+    const allPosts = await Post.find();
+    return res.status(200).json(allPosts);
+  } catch (error) {
+    return res.status(500).send("An unknown error occured.");
+  }
+});
+
+app.get("/posts/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const post = await Post.findById(id);
+    return res.status(200).json(post);
+  } catch (error) {
+    return res.status(500).send("An unknown error occured.");
+  }
+});
+
+app.post("/posts", async (req, res) => {
+  try {
+    const newPost = new Post({ ...req.body });
+    const insertedPost = await newPost.save();
+    return res.status(201).json(insertedPost);
+  } catch (error) {
+    return res.status(500).send("An unknown error occured.");
+  }
+});
+
+app.put("posts/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Post.updateOne({ id }, req.body);
+    const updatedPost = await Post.findById(id);
+    return res.status(200).json(updatedPost);
+  } catch (error) {
+    return res.status(500).send("An unknown error occured.");
+  }
+});
+
+app.delete("/posts/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedPost = await Post.findByIdAndDelete(id);
+    return res.status(200).json(deletedPost);
+  } catch (error) {
+    return res.status(500).send("An unknown error occured.");
+  }
+});
+
 const start = async () => {
   try {
     await mongoose.connect(uri);
