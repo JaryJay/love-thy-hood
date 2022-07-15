@@ -2,7 +2,7 @@ require("dotenv").config({ path: "./config.env" });
 const express = require("express");
 const mongoose = require("mongoose");
 
-const { Neighbourhood } = require("./models");
+const { Neighbourhood, User, Post } = require("./models");
 
 const app = express();
 const uri = process.env.URI;
