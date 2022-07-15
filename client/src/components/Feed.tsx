@@ -1,9 +1,17 @@
+import { useState } from 'react';
+
+interface Post {
+  images: string[],
+  caption: string,
+  from: string,
+}
 const Feed = () => {
-  state = {
+  const [post, setPost] = useState<Post>({
     images: [],
     caption: "",
     from: "",
-  }
+  });
+  
   return (
     <div>
       <p>bow chicka wow wow</p>
