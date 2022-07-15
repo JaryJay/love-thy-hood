@@ -1,4 +1,4 @@
-const About = () => {
+const Feed = () => {
   return (
     <div>
       <p>bow chicka wow wow</p>
@@ -6,4 +6,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Feed;

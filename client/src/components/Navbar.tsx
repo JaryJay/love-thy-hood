@@ -9,14 +9,28 @@ const Navbar = () => {
             <li className="nav-item mx-3">
               <div className="duration-300 hover:bg-orange-600 rounded-md px-2 py-2">
                 <NavLink className="nav-link p-3" to="/">
-                  Home
+                  Feed
                 </NavLink>
               </div>
             </li>
             <li className="nav-item mx-3">
               <div className="duration-300 hover:bg-orange-600 rounded-md px-2 py-2">
                 <NavLink className="nav-link p-3" to="/about">
-                  About
+                  Direct messages
+                </NavLink>
+              </div>
+            </li>
+            <li className="nav-item mx-3">
+              <div className="duration-300 hover:bg-orange-600 rounded-md px-2 py-2">
+                <NavLink className="nav-link p-3" to="/about">
+                  Post
+                </NavLink>
+              </div>
+            </li>
+            <li className="nav-item mx-3">
+              <div className="duration-300 hover:bg-orange-600 rounded-md px-2 py-2">
+                <NavLink className="nav-link p-3" to="/about">
+                  Profile
                 </NavLink>
               </div>
             </li>

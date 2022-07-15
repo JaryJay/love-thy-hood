@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Navbar, Home, About } from "./components";
+import { Navbar, Feed, DirectMessages } from "./components";
 import "./App.css";
 
 /**
@@ -10,8 +10,8 @@ const App = () => {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/" element={<Feed />} />
+        <Route path="/about" element={<DirectMessages />} />
       </Routes>
     </Router>
   );
