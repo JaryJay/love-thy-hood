@@ -13,21 +13,21 @@ const Neighbourhoods = require("./endpoints/neighbourhood.js");
 app.get("/neighbourhoods", Neighbourhoods.getAll);
 app.get("/neighbourhoods/:id", Neighbourhoods.get);
 app.post("/neighbourhoods", Neighbourhoods.post);
-app.put("neighbourhoods/:id", Neighbourhoods.put);
+app.put("/neighbourhoods/:id", Neighbourhoods.put);
 app.delete("/neighbourhoods/:id", Neighbourhoods.delete);
 
 const Users = require("./endpoints/user.js");
 app.get("/users", Users.getAll);
 app.get("/users/:id", Users.get);
 app.post("/users", Users.post);
-app.put("users/:id", Users.put);
+app.put("/users/:id", Users.put);
 app.delete("/users/:id", Users.delete);
 
 const Posts = require("./endpoints/post.js");
 app.get("/posts", Posts.getAll);
 app.get("/posts/:id", Posts.get);
 app.post("/posts", Posts.post);
-app.put("posts/:id", Posts.put);
+app.put("/posts/:id", Posts.put);
 app.delete("/posts/:id", Posts.delete);
 
 const start = async () => {

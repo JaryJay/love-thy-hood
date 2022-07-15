@@ -3,30 +3,34 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const NeighbourhoodSchema = new Schema({
-  name: { type: String, required: true, },
-  points: { type: Number, required: true, },
+  name: { type: String, required: true },
+  points: { type: Number, required: false, default: 0 },
 
-  members: [{
-    type: Schema.Types.ObjectId,
-    ref: "User"
-  }]
+  members: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
 });
 
 const UserSchema = new Schema({
-  name: { type: String, required: true, },
+  name: { type: String, required: true },
   points: { type: Number, required: false, default: 0 },
   bio: { type: String, required: false, default: "" },
 
   neighbourhood: {
     type: Schema.Types.ObjectId,
-    ref: "Neighbourhood"
+    ref: "Neighbourhood",
   },
   posts: {
-    type: [{
-      type: Schema.Types.ObjectId,
-      ref: "Post"
-    }]
-  }
+    type: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Post",
+      },
+    ],
+  },
 });
 
 const PostSchema = new Schema({
@@ -35,16 +39,20 @@ const PostSchema = new Schema({
 
   user: {
     type: Schema.Types.ObjectId,
-    ref: "User"
+    ref: "User",
   },
-  likes: [{
-    type: Schema.Types.ObjectId,
-    ref: "User"
-  }],
-  comments: [{
-    commenter: { type: Schema.Types.ObjectId, ref: "User" },
-    text: { type: String, required: true },
-  }],
+  likes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
+  comments: [
+    {
+      commenter: { type: Schema.Types.ObjectId, ref: "User" },
+      text: { type: String, required: true },
+    },
+  ],
 });
 
 const Neighbourhood = mongoose.model("Neighbourhood", NeighbourhoodSchema);
