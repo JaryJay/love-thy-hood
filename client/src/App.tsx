@@ -11,7 +11,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Feed />} />
-        <Route path="/about" element={<DirectMessages />} />
+        <Route path='/DirectMessages' element={<DirectMessages />} />
       </Routes>
     </Router>
   );

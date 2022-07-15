@@ -1,4 +1,9 @@
 const Feed = () => {
+  state = {
+    images: [],
+    caption: "",
+    from: "",
+  }
   return (
     <div>
       <p>bow chicka wow wow</p>

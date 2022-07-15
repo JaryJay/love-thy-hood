@@ -15,21 +15,21 @@ const Navbar = () => {
             </li>
             <li className="nav-item mx-3">
               <div className="duration-300 hover:bg-orange-600 rounded-md px-2 py-2">
-                <NavLink className="nav-link p-3" to="/about">
+                <NavLink className="nav-link p-3" to="/DirectMessages">
                   Direct messages
                 </NavLink>
               </div>
             </li>
             <li className="nav-item mx-3">
               <div className="duration-300 hover:bg-orange-600 rounded-md px-2 py-2">
-                <NavLink className="nav-link p-3" to="/about">
+                <NavLink className="nav-link p-3" to="/Post">
                   Post
                 </NavLink>
               </div>
             </li>
             <li className="nav-item mx-3">
               <div className="duration-300 hover:bg-orange-600 rounded-md px-2 py-2">
-                <NavLink className="nav-link p-3" to="/about">
+                <NavLink className="nav-link p-3" to="/Profile">
                   Profile
                 </NavLink>
               </div>
