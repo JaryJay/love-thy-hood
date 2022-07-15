@@ -1,16 +1,62 @@
 const mongoose = require("mongoose");
 
-const NeighbourhoodSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
+const Schema = mongoose.Schema;
+
+const NeighbourhoodSchema = new Schema({
+  name: { type: String, required: true },
+  points: { type: Number, required: false, default: 0 },
+
+  members: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
+});
+
+const UserSchema = new Schema({
+  name: { type: String, required: true },
+  points: { type: Number, required: false, default: 0 },
+  bio: { type: String, required: false, default: "" },
+
+  neighbourhood: {
+    type: Schema.Types.ObjectId,
+    ref: "Neighbourhood",
   },
-  points: {
-    type: Number,
-    required: true,
+  posts: {
+    type: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Post",
+      },
+    ],
   },
 });
 
-const Neighbourhood = mongoose.model("Neighbourhood", NeighbourhoodSchema);
+const PostSchema = new Schema({
+  files: [String],
+  caption: { type: String, required: true },
 
-module.exports = { Neighbourhood };
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+  likes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
+  comments: [
+    {
+      commenter: { type: Schema.Types.ObjectId, ref: "User" },
+      text: { type: String, required: true },
+    },
+  ],
+});
+
+const Neighbourhood = mongoose.model("Neighbourhood", NeighbourhoodSchema);
+const User = mongoose.model("User", UserSchema);
+const Post = mongoose.model("Post", PostSchema);
+
+module.exports = { Neighbourhood, User, Post };
