@@ -10,39 +10,59 @@ const uri = process.env.URI;
 app.use(express.json());
 
 app.get("/neighbourhoods", async (req, res) => {
-  const allNeighbourhoods = await Neighbourhood.find();
-  return res.status(200).json(allNeighbourhoods);
+  try {
+    const allNeighbourhoods = await Neighbourhood.find();
+    return res.status(200).json(allNeighbourhoods);
+  } catch (error) {
+    return res.status(500).send("An unknown error occured.");
+  }
 });
 
 app.get("/neighbourhoods/:id", async (req, res) => {
-  const { id } = req.params;
-  const neighbourhood = await Neighbourhood.findById(id);
-  return res.status(200).json(neighbourhood);
+  try {
+    const { id } = req.params;
+    const neighbourhood = await Neighbourhood.findById(id);
+    return res.status(200).json(neighbourhood);
+  } catch (error) {
+    return res.status(500).send("An unknown error occured.");
+  }
 });
 
 app.post("/neighbourhoods", async (req, res) => {
-  const newNeighbourhood = new Neighbourhood({ ...req.body });
-  const insertedNeighbourhood = await newNeighbourhood.save();
-  return res.status(201).json(insertedNeighbourhood);
+  try {
+    const newNeighbourhood = new Neighbourhood({ ...req.body });
+    const insertedNeighbourhood = await newNeighbourhood.save();
+    return res.status(201).json(insertedNeighbourhood);
+  } catch (error) {
+    return res.status(500).send("An unknown error occured.");
+  }
 });
 
 app.put("neighbourhoods/:id", async (req, res) => {
-  const { id } = req.params;
-  await Neighbourhood.updateOne({ id }, req.body);
-  const updatedNeighbourhood = await Neighbourhood.findById(id);
-  return res.status(200).json(updatedNeighbourhood);
+  try {
+    const { id } = req.params;
+    await Neighbourhood.updateOne({ id }, req.body);
+    const updatedNeighbourhood = await Neighbourhood.findById(id);
+    return res.status(200).json(updatedNeighbourhood);
+  } catch (error) {
+    return res.status(500).send("An unknown error occured.");
+  }
 });
 
 app.delete("/neighbourhoods/:id", async (req, res) => {
-  const { id } = req.params;
-  const deletedNeighbourhood = await Neighbourhood.findByIdAndDelete(id);
-  return res.status(200).json(deletedNeighbourhood);
+  try {
+    const { id } = req.params;
+    const deletedNeighbourhood = await Neighbourhood.findByIdAndDelete(id);
+    return res.status(200).json(deletedNeighbourhood);
+  } catch (error) {
+    return res.status(500).send("An unknown error occured.");
+  }
 });
 
 const start = async () => {
   try {
     await mongoose.connect(uri);
-    app.listen(3000, () => console.log("Server started on port 3000"));
+    app.listen(5000, () => console.log("Server started on port 5000"));
   } catch (error) {
     console.error(error);
     process.exit(1);
