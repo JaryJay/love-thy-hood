@@ -6,7 +6,8 @@ let PostEndpoints = {
       const allPosts = await Post.find();
       return res.status(200).json(allPosts);
     } catch (error) {
-      return res.status(500).send("An unknown error occured.");
+      console.error(error);
+      return res.status(500).send(error.toString());
     }
   },
   get: async (req, res) => {
@@ -15,7 +16,8 @@ let PostEndpoints = {
       const post = await Post.findById(id);
       return res.status(200).json(post);
     } catch (error) {
-      return res.status(500).send("An unknown error occured.");
+      console.error(error);
+      return res.status(500).send(error.toString());
     }
   },
   post: async (req, res) => {
@@ -24,7 +26,8 @@ let PostEndpoints = {
       const insertedPost = await newPost.save();
       return res.status(201).json(insertedPost);
     } catch (error) {
-      return res.status(500).send("An unknown error occured.");
+      console.error(error);
+      return res.status(500).send(error.toString());
     }
   },
   put: async (req, res) => {
@@ -34,7 +37,8 @@ let PostEndpoints = {
       const updatedPost = await Post.findById(id);
       return res.status(200).json(updatedPost);
     } catch (error) {
-      return res.status(500).send("An unknown error occured.");
+      console.error(error);
+      return res.status(500).send(error.toString());
     }
   },
   delete: async (req, res) => {
@@ -43,7 +47,8 @@ let PostEndpoints = {
       const deletedPost = await Post.findByIdAndDelete(id);
       return res.status(200).json(deletedPost);
     } catch (error) {
-      return res.status(500).send("An unknown error occured.");
+      console.error(error);
+      return res.status(500).send(error.toString());
     }
   },
 };

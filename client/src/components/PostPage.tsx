@@ -6,7 +6,7 @@ const PostPage = () => {
   const [formState, setFormState] = useState<PostType>({
     files: [],
     caption: "",
-    user: "",
+    user: "62d267f774cd14b50d999ea6",
     likes: [],
     comments: [],
   });
@@ -19,7 +19,10 @@ const PostPage = () => {
     }
   };
 
-  const handleSubmission = () => {
+  const handleSubmission = async () => {
+    console.log(formState);
+    console.log(await ApiDataService.createPost(formState.user, formState));
+
     // Create post and assign to user
   };
 

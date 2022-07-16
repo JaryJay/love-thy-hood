@@ -65,6 +65,7 @@ class ApiDataService {
     return (await http.get<Post>(`/posts/${id}`)).data;
   }
   async createPost(userId: string, data: Post) {
+    data.user = userId;
     const post = (await http.post<Post>(`/posts`, data)).data;
     const user = await this.getUser(userId);
     await this.updateUser(userId, user);
