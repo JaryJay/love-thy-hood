@@ -21,14 +21,16 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState<UserType>();
 
   useEffect(() => {
-    ApiDataService.getAllUsers().then((response) => {
-      setCurrentUser(
-        response.filter((u) => {
-          return u.email === user!.email;
-        })[0]
-      );
-    });
-  }, []);
+    if (isAuthenticated) {
+      ApiDataService.getAllUsers().then((response) => {
+        setCurrentUser(
+          response.filter((u) => {
+            return u.email === user!.email;
+          })[0]
+        );
+      });
+    }
+  }, [isAuthenticated]);
 
   if (isAuthenticated) {
     return (
