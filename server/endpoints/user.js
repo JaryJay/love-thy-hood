@@ -21,9 +21,11 @@ let UserEndpoints = {
   post: async (req, res) => {
     try {
       const newUser = new User({ ...req.body });
+      console.log(newUser);
       const insertedUser = await newUser.save();
       return res.status(201).json(insertedUser);
     } catch (error) {
+      console.log(error);
       return res.status(500).send("An unknown error occured.");
     }
   },
