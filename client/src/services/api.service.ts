@@ -46,7 +46,7 @@ class ApiDataService {
     user.neighbourhood = neighbourhoodId;
     const createdUser = (await http.post<User>(`/users`, user)).data;
     const n = await this.getNeighbourhood(neighbourhoodId);
-    n.members.push(createdUser.id as string);
+    n.members.push(createdUser._id as string);
     await this.updateNeighbourhood(neighbourhoodId, n);
     return createdUser;
   }
@@ -77,7 +77,7 @@ class ApiDataService {
     const deletedPost = (await http.delete<Post>(`/posts/${id}`)).data;
     const userId = deletedPost.user;
     const user = await this.getUser(userId);
-    user.posts = user.posts.filter(p => p !== deletedPost.id);
+    user.posts = user.posts.filter(p => p !== deletedPost._id);
     await this.updateUser(userId, user);
     return deletedPost;
   }

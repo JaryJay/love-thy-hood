@@ -1,5 +1,5 @@
 export default interface Neighbourhood {
-    id?: string,
+    _id?: string,
     name: string,
     points: number,
     members: string[], // User ids

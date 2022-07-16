@@ -1,5 +1,5 @@
 export default interface User {
-    id?: string,
+    _id?: string,
     name: string,
     points: number,
     bio: string,
