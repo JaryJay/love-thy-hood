@@ -28,7 +28,7 @@ const PostComponent = (props: Post) => {
   )
 }
 
-const Feed = () => {
+const FeedPage = () => {
   const [postsState, setPost] = useState<Post[]>([
     {
       images: [post1],
@@ -72,4 +72,4 @@ const Feed = () => {
   );
 };
 
-export default Feed;
+export default FeedPage;
