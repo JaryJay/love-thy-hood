@@ -4,9 +4,10 @@ import ApiDataService from "../services/api.service";
 
 const PostPage = () => {
   const [formState, setFormState] = useState<PostType>({
-    files: [],
+    images: [],
     caption: "",
     user: "",
+    userName: "",
     likes: [],
     comments: [],
   });

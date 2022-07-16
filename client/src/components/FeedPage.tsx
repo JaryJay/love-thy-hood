@@ -1,19 +1,20 @@
 import { useState } from 'react';
 import PostComponent from './PostComponent';
+import Post from '../types/post.type'
 
 // Import images
 import post1 from "../assets/1.png"
 import post2 from "../assets/2.png"
 import post3 from "../assets/3.png"
 
-export interface Post {
-  images: string[],
-  caption: string,
-  from: string,
+// export interface Post {
+//   images: string[],
+//   caption: string,
+//   from: string,
 
-  likes: string[],
-  comments: string[],
-}
+//   likes: User[],
+//   comments: string[],
+// }
 
 
 const FeedPage = () => {
@@ -21,16 +22,18 @@ const FeedPage = () => {
     {
       images: [post1],
       caption: "Yo",
-      from: "Sean Wang",
+      user: "69",
+      userName: "Sean Wang",
       likes: [],
       comments: [],
     },
     {
       images: [post2],
-      caption: "Happy Birthday [Ce][S]ara[h]!",
-      from: "Leanne Kim",
+      caption: "Happy Birthday [Ce][Sa]ra[h]!",
+      user: "69",
+      userName: "Leanne Kim",
       likes: [],
-      comments: ["💯✨🎉"],
+      comments: [{commenter: "💯✨🎉", text: "ok then"}],
     }
   ]);
   
@@ -47,7 +50,8 @@ const FeedPage = () => {
             <PostComponent 
               images={postsState.images}
               caption={postsState.caption}
-              from={postsState.from}
+              user={postsState.user}
+              userName={postsState.userName}
               likes={postsState.likes}
               comments={postsState.comments}
             />
