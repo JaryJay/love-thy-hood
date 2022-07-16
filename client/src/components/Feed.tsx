@@ -8,6 +8,8 @@ interface Post {
   caption: string,
   from: string,
 }
+
+
 const Feed = () => {
   const [postsState, setPost] = useState<Post[]>([
     {
