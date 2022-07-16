@@ -14,54 +14,46 @@ const NeighbourhoodSchema = new Schema({
   ],
 });
 
-const UserSchema = new Schema(
-  {
-    name: { type: String, required: true },
-    email: { type: String, required: true },
-    password: { type: String, required: true },
-    points: { type: Number, required: false, default: 0 },
-    bio: { type: String, required: false, default: "" },
+const UserSchema = new Schema({
+  name: { type: String, required: true },
+  points: { type: Number, required: false, default: 0 },
+  bio: { type: String, required: false, default: "" },
 
-    neighbourhood: {
-      type: Schema.Types.ObjectId,
-      ref: "Neighbourhood",
-    },
-    posts: {
-      type: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: "Post",
-        },
-      ],
-    },
+  neighbourhood: {
+    type: Schema.Types.ObjectId,
+    ref: "Neighbourhood",
   },
-  { timestamps: true }
-);
+  posts: {
+    type: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Post",
+      },
+    ],
+  },
+});
 
-const PostSchema = new Schema(
-  {
-    files: [String],
-    caption: { type: String, required: true },
+const PostSchema = new Schema({
+  files: [String],
+  caption: { type: String, required: true },
 
-    user: {
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+  likes: [
+    {
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-    likes: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
-    comments: [
-      {
-        commenter: { type: Schema.Types.ObjectId, ref: "User" },
-        text: { type: String, required: true },
-      },
-    ],
-  },
-  { timestamps: true }
-);
+  ],
+  comments: [
+    {
+      commenter: { type: Schema.Types.ObjectId, ref: "User" },
+      text: { type: String, required: true },
+    },
+  ],
+}, { timestamps: true });
 
 const Neighbourhood = mongoose.model("Neighbourhood", NeighbourhoodSchema);
 const User = mongoose.model("User", UserSchema);
