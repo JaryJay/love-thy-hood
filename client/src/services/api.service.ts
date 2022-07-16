@@ -4,11 +4,16 @@ import Post from "../types/post.type";
 import User from "../types/user.type";
 
 class ApiDataService {
-  async addPoints(neighbourhoodId: string, points: number): Promise<void> {
+  async addPoints(userId: string, points: number): Promise<void> {
+    const user = await this.getUser(userId);
+    const neighbourhoodId = user.neighbourhood;
     const n = await this.getNeighbourhood(neighbourhoodId);
+    const newUser = { ...user, points: user.points + points };
     const newNeighbourhood: Neighbourhood = { ...n, points: n.points + points };
-    this.updateNeighbourhood(neighbourhoodId, newNeighbourhood);
+    await this.updateUser(userId, newUser);
+    await this.updateNeighbourhood(neighbourhoodId, newNeighbourhood);
   }
+
   async getNeighbourhoods() {
     return (await http.get<Array<Neighbourhood>>("/neighbourhoods")).data;
   }
