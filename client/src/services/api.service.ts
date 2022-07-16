@@ -6,55 +6,55 @@ import User from "../types/user.type";
 class ApiDataService {
   async addPoints(neighbourhoodId: string, points: number): Promise<void> {
     const n = await this.getNeighbourhood(neighbourhoodId);
-    const newNeighbourhood: Neighbourhood = { ...n.data, points: n.data.points + points };
+    const newNeighbourhood: Neighbourhood = { ...n, points: n.points + points };
     this.updateNeighbourhood(neighbourhoodId, newNeighbourhood);
   }
-  getNeighbourhoods() {
-    return http.get<Array<Neighbourhood>>("/neighbourhoods");
+  async getNeighbourhoods() {
+    return (await http.get<Array<Neighbourhood>>("/neighbourhoods")).data;
   }
-  getNeighbourhood(id: string) {
-    return http.get<Neighbourhood>(`/neighbourhoods/${id}`);
+  async getNeighbourhood(id: string) {
+    return (await http.get<Neighbourhood>(`/neighbourhoods/${id}`)).data;
   }
-  createNeighbourhood(data: Neighbourhood) {
-    return http.post<Neighbourhood>(`/neighbourhoods`, data);
+  async createNeighbourhood(data: Neighbourhood) {
+    return (await http.post<Neighbourhood>(`/neighbourhoods`, data)).data;
   }
-  updateNeighbourhood(id: string, data: Neighbourhood) {
-    return http.put(`/neighbourhoods/${id}`, data);
+  async updateNeighbourhood(id: string, data: Neighbourhood) {
+    return (await http.put(`/neighbourhoods/${id}`, data)).data;
   }
-  deleteNeighbourhood(id: string) {
-    return http.delete(`/neighbourhoods/${id}`);
-  }
-
-  getUsers() {
-    return http.get<Array<User>>("/users");
-  }
-  getUser(id: string) {
-    return http.get<User>(`/users/${id}`);
-  }
-  createUser(data: User) {
-    return http.post<User>(`/users`, data);
-  }
-  updateUser(id: string, data: User) {
-    return http.put(`/users/${id}`, data);
-  }
-  deleteUser(id: string) {
-    return http.delete(`/users/${id}`);
+  async deleteNeighbourhood(id: string) {
+    return (await http.delete(`/neighbourhoods/${id}`)).data;
   }
 
-  getPosts() {
-    return http.get<Array<Post>>("/posts");
+  async getUsers() {
+    return (await http.get<Array<User>>("/users")).data;
   }
-  getPost(id: string) {
-    return http.get<Post>(`/posts/${id}`);
+  async getUser(id: string) {
+    return (await http.get<User>(`/users/${id}`)).data;
   }
-  createPost(data: Post) {
-    return http.post<Post>(`/posts`, data);
+  async createUser(data: User) {
+    return (await http.post<User>(`/users`, data)).data;
   }
-  updatePost(id: string, data: Post) {
-    return http.put(`/posts/${id}`, data);
+  async updateUser(id: string, data: User) {
+    return (await http.put(`/users/${id}`, data)).data;
   }
-  deletePost(id: string) {
-    return http.delete(`/posts/${id}`);
+  async deleteUser(id: string) {
+    return (await http.delete(`/users/${id}`)).data;
+  }
+
+  async getPosts() {
+    return (await http.get<Array<Post>>("/posts")).data;
+  }
+  async getPost(id: string) {
+    return (await http.get<Post>(`/posts/${id}`)).data;
+  }
+  async createPost(data: Post) {
+    return (await http.post<Post>(`/posts`, data)).data;
+  }
+  async updatePost(id: string, data: Post) {
+    return (await http.put(`/posts/${id}`, data)).data;
+  }
+  async deletePost(id: string) {
+    return (await http.delete(`/posts/${id}`)).data;
   }
 }
 
