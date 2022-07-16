@@ -7,8 +7,26 @@ interface Post {
   images: string[],
   caption: string,
   from: string,
+
+  likes: string[],
+  comments: string[],
 }
 
+const PostComponent = (props: Post) => {
+  return (
+    <li>
+      <img src={props.images[0]} alt="post" />
+      <p className="text-center px-5 rounded-md border-4 border-green-500 border-solid">{props.caption}</p>
+      <p className="text-center px-5 borde width-5">Posted by: {props.from}</p>
+      <div className="text-center px-5 borde width-5">Comments: {
+        props.comments.map((comment, i) => (
+          <p>{comment}</p>
+        ))
+      }</div>
+      <br /><br />
+    </li>
+  )
+}
 
 const Feed = () => {
   const [postsState, setPost] = useState<Post[]>([
@@ -16,33 +34,41 @@ const Feed = () => {
       images: [post1],
       caption: "Yo",
       from: "Sean Wang",
+      likes: [],
+      comments: [],
     },
     {
       images: [post2],
       caption: "Happy Birthday [Ce][S]ara[h]!",
       from: "Leanne Kim",
+      likes: [],
+      comments: ["💯✨🎉"],
     }
   ]);
-
-  // Render each post in the postsState array
-  const posts = postsState.map((postsState, i) => {
-    return (
-      // Get the border 
-      <li key={i}>
-        <img src={postsState.images[0]} alt="post" className="w-1/2 m-auto" />
-        <p className="text-center m-auto w-1/2 px-5 rounded-md border-4 border-green-500 border-solid">{postsState.caption}</p>
-        <p className="text-center m-auto px-5 borde width-5">Posted by: {postsState.from}</p>
-        <br /><br />
-      </li>
-    );
-  });
-    
+  
   return (
-    <div>
+    // Members list in your neighborhood
+    
+
+    // Posts
+    <div className="w-1/2 bg-blue-500">
       <ul>
-        {posts}
+        {
+          // Render each post as a component based on the postsState array
+          postsState.map((postsState, i) => (
+            <PostComponent 
+              images={postsState.images}
+              caption={postsState.caption}
+              from={postsState.from}
+              likes={postsState.likes}
+              comments={postsState.comments}
+            />
+          ))
+        }
       </ul>
     </div>
+
+
   );
 };
 
