@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from "react";
 import PostType from "../types/post.type";
 import ApiDataService from "../services/api.service";
 
-const Post = () => {
+const PostPage = () => {
   const [formState, setFormState] = useState<PostType>({
     files: [],
     caption: "",
@@ -61,4 +61,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default PostPage;

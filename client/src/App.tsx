@@ -2,8 +2,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
   Navbar,
   FeedPage,
-  Post,
-  Profile,
+  PostPage,
+  ProfilePage,
   LoginButton,
   LogoutButton,
 } from "./components";
@@ -20,8 +20,8 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<FeedPage />} />
-        <Route path="/post" element={<Post />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/post" element={<PostPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </Router>
   );
