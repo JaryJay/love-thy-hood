@@ -8,6 +8,7 @@ import {
   LogoutButton,
 } from "./components";
 import { useAuth0 } from "@auth0/auth0-react";
+import ApiDataService from "./services/api.service";
 import "./App.css";
 
 /**
@@ -15,9 +16,15 @@ import "./App.css";
  */
 const App = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
-  console.log(isAuthenticated);
 
   if (isAuthenticated) {
+    ApiDataService.getAllUsers().then((response) => {
+      console.log(
+        response.filter((u) => {
+          return u.email === user!.email;
+        })
+      );
+    });
     return (
       <Router>
         <LogoutButton />
