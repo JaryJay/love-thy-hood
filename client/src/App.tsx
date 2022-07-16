@@ -31,7 +31,12 @@ const App = () => {
       </Router>
     );
   } else {
-    return <div>bruh</div>;
+    return (
+      <div>
+        <LoginButton />
+        <LogoutButton />
+      </div>
+    );
   }
 };
 
