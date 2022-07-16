@@ -16,6 +16,7 @@ const NeighbourhoodSchema = new Schema({
 
 const UserSchema = new Schema({
   name: { type: String, required: true },
+  email: { type: String, required: true },
   points: { type: Number, required: false, default: 0 },
   bio: { type: String, required: false, default: "" },
 
