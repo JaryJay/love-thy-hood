@@ -1,5 +1,5 @@
 import React from 'react'
-// import {  } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 
 const ProfilePage = ({ user }: { user: any }) => {
   return (
@@ -9,6 +9,9 @@ const ProfilePage = ({ user }: { user: any }) => {
           <div className='flex-1 justify-center'>
             {/* profile picture */}
             pfp
+            <div className='w-8 h-8 border border-white p-1 rounded-full items-center justify-center text-center align-middle'>
+              <FaUser className='relative' />
+            </div>
           </div>
           <div className='flex-1 w-4/5'>
             Name: joe<br />
