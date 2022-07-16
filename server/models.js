@@ -53,7 +53,7 @@ const PostSchema = new Schema({
       text: { type: String, required: true },
     },
   ],
-});
+}, { timestamps: true });
 
 const Neighbourhood = mongoose.model("Neighbourhood", NeighbourhoodSchema);
 const User = mongoose.model("User", UserSchema);

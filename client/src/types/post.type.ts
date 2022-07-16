@@ -7,4 +7,6 @@ export default interface Post {
     user: string,
     likes: string[], // User ids
     comments: Comment[] // Comment objects
+    createdAt?: Date,
+    updatedAt?: Date
 };

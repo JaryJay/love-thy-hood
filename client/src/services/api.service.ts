@@ -1,4 +1,5 @@
 import http from "../http-common";
+import Comment from "../types/comment.type";
 import Neighbourhood from "../types/neighbourhood.type";
 import Post from "../types/post.type";
 import User from "../types/user.type";
@@ -12,6 +13,11 @@ class ApiDataService {
     const newNeighbourhood: Neighbourhood = { ...n, points: n.points + points };
     await this.updateUser(userId, newUser);
     await this.updateNeighbourhood(neighbourhoodId, newNeighbourhood);
+  }
+  async makeComment(postId: string, comment: Comment) {
+    const post = await this.getPost(postId);
+    post.comments.push(comment);
+    await this.updatePost(postId, post);
   }
 
   async getNeighbourhoods() {
