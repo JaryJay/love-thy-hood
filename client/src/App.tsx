@@ -19,7 +19,7 @@ const App = () => {
       <LogoutButton />
       <Navbar />
       <Routes>
-        <Route path="/" element={<Feed />} />
+        <Route path="/" element={<FeedPage />} />
         <Route path="/post" element={<Post />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
