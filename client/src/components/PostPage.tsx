@@ -6,8 +6,7 @@ const PostPage = () => {
   const [formState, setFormState] = useState<PostType>({
     images: [],
     caption: "",
-    user: "62d267f774cd14b50d999ea6",
-    userName: "",
+    user: "62d30f87da5796e813f7820c", // REPLACE WITH ACTUAL USER ID
     likes: [],
     comments: [],
   });

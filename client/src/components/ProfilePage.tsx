@@ -3,7 +3,7 @@ import React from 'react'
 
 const ProfilePage = ({ user }: { user: any }) => {
   return (
-    <div className='gradient-2 h-screen items-center pt-8'>
+    <div className='gradient-2 h-screen items-center pt-8 text-white'>
       <div className='lg:mx-80 md:mx-40 sm:mx-20 p-8 glass-morphism-1'>
         <div className='flex my-2 p-2'>
           <div className='flex-1 justify-center'>

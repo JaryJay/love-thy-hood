@@ -23,7 +23,6 @@ const FeedPage = () => {
       images: [post1],
       caption: "Yo",
       user: "69",
-      userName: "Sean Wang",
       likes: [],
       comments: [],
     },
@@ -31,15 +30,14 @@ const FeedPage = () => {
       images: [post2],
       caption: "Happy Birthday [Ce][Sa]ra[h]!",
       user: "69",
-      userName: "Leanne Kim",
       likes: [],
-      comments: [{commenter: "💯✨🎉", text: "ok then"}],
+      comments: [{ commenter: "💯✨🎉", text: "ok then" }],
     }
   ]);
-  
+
   return (
     // Members list in your neighborhood
-    
+
 
     // Posts
     <div className="w-1/2 bg-blue-500">
@@ -47,13 +45,9 @@ const FeedPage = () => {
         {
           // Render each post as a component based on the postsState array
           postsState.map((postsState, i) => (
-            <PostComponent 
-              images={postsState.images}
-              caption={postsState.caption}
-              user={postsState.user}
-              userName={postsState.userName}
-              likes={postsState.likes}
-              comments={postsState.comments}
+            <PostComponent
+              post={postsState}
+              userName={"userName"}
             />
           ))
         }
