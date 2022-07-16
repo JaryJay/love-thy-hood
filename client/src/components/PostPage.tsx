@@ -32,22 +32,24 @@ const PostPage = () => {
           <span className="text-2xl">Upload something for everyone to see!</span>
         </div>
         <div className="flex-1 w-1/2 m-4">
-          <div className="glass-morphism-1 p-4">
-            <label>Files</label>
-            <br />
-            <input type="file" name="files" multiple onChange={changeHandler} />
-            <br />
-            <label>Caption</label>
+          <div className="glass-morphism-1 p-8">
+            <label htmlFor="file" className="w-full h-full bg-slate-300">
+              <input type="file" id="file" multiple onChange={changeHandler} className="hidden" />
+              <div className="w-full h-full rounded-md border-dashed border-2 border-slate-100 p-2 m-1 text-center cu">
+                Choose files
+              </div>
+            </label>
             <br />
             <input
-              className="outline outline-1 rounded-md my-1 px-5 py-1 w-full bg-gray-600"
+              className="rounded-md my-1 px-5 py-1 w-full bg-gray-600 bg-opacity-20 border-none outline-none"
               type="text"
-              name="caption"
+              name="caption" placeholder="Caption"
               onChange={changeHandler}
             />
+            <br />
             <div className="mt-4">
               <button onClick={handleSubmission}
-                className="rounded-full border-orange-400 border-2 py-2 px-8
+                className="rounded-md border-orange-400 border-2 py-2 px-8
                 text-orange-400 hover:text-white hover:bg-orange-400 transition-all">
 
                 Post
