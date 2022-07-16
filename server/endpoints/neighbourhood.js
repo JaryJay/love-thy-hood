@@ -7,7 +7,7 @@ let NeighbourhoodEndpoints = {
       return res.status(200).json(allNeighbourhoods);
     } catch (error) {
       console.error(error);
-      return res.status(500).send("An unknown error occured.");
+      return res.status(500).send(error.toString());
     }
   },
   get: async (req, res) => {
@@ -16,7 +16,8 @@ let NeighbourhoodEndpoints = {
       const neighbourhood = await Neighbourhood.findById(id);
       return res.status(200).json(neighbourhood);
     } catch (error) {
-      return res.status(500).send("An unknown error occured.");
+      console.error(error);
+      return res.status(500).send(error.toString());
     }
   },
   post: async (req, res) => {
@@ -25,7 +26,8 @@ let NeighbourhoodEndpoints = {
       const insertedNeighbourhood = await newNeighbourhood.save();
       return res.status(201).json(insertedNeighbourhood);
     } catch (error) {
-      return res.status(500).send("An unknown error occured.");
+      console.error(error);
+      return res.status(500).send(error.toString());
     }
   },
   put: async (req, res) => {
@@ -35,7 +37,8 @@ let NeighbourhoodEndpoints = {
       const updatedNeighbourhood = await Neighbourhood.findById(id);
       return res.status(200).json(updatedNeighbourhood);
     } catch (error) {
-      return res.status(500).send("An unknown error occured.");
+      console.error(error);
+      return res.status(500).send(error.toString());
     }
   },
   delete: async (req, res) => {
@@ -44,7 +47,8 @@ let NeighbourhoodEndpoints = {
       const deletedNeighbourhood = await Neighbourhood.findByIdAndDelete(id);
       return res.status(200).json(deletedNeighbourhood);
     } catch (error) {
-      return res.status(500).send("An unknown error occured.");
+      console.error(error);
+      return res.status(500).send(error.toString());
     }
   },
 };

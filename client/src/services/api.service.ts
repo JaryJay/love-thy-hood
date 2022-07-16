@@ -36,7 +36,8 @@ class ApiDataService {
     return (await http.delete<Neighbourhood>(`/neighbourhoods/${id}`)).data;
   }
 
-  async getUsers() {
+  // WARNING: This gets all users from all neighbourhoods. Consider using (await getNeighbourhood()).users instead.
+  async getAllUsers() {
     return (await http.get<Array<User>>("/users")).data;
   }
   async getUser(id: string) {
@@ -55,6 +56,10 @@ class ApiDataService {
   }
   async deleteUser(id: string) {
     console.log("Why are you deleting a user");
+    const user = await this.getUser(id);
+    const neighbourhood = await this.getNeighbourhood(user.neighbourhood);
+    neighbourhood.members = neighbourhood.members.filter(m => m !== id);
+    await this.updateNeighbourhood(neighbourhood._id as string, neighbourhood);
     return (await http.delete<User>(`/users/${id}`)).data;
   }
 
@@ -65,8 +70,10 @@ class ApiDataService {
     return (await http.get<Post>(`/posts/${id}`)).data;
   }
   async createPost(userId: string, data: Post) {
+    data.user = userId;
     const post = (await http.post<Post>(`/posts`, data)).data;
     const user = await this.getUser(userId);
+    user.posts.push(post._id as string);
     await this.updateUser(userId, user);
     return post;
   }

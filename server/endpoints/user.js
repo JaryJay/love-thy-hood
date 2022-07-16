@@ -6,7 +6,8 @@ let UserEndpoints = {
       const allUsers = await User.find();
       return res.status(200).json(allUsers);
     } catch (error) {
-      return res.status(500).send("An unknown error occured.");
+      console.error(error);
+      return res.status(500).send(error.toString());
     }
   },
   get: async (req, res) => {
@@ -15,7 +16,8 @@ let UserEndpoints = {
       const user = await User.findById(id);
       return res.status(200).json(user);
     } catch (error) {
-      return res.status(500).send("An unknown error occured.");
+      console.error(error);
+      return res.status(500).send(error.toString());
     }
   },
   post: async (req, res) => {
@@ -25,8 +27,8 @@ let UserEndpoints = {
       const insertedUser = await newUser.save();
       return res.status(201).json(insertedUser);
     } catch (error) {
-      console.log(error);
-      return res.status(500).send("An unknown error occured.");
+      console.error(error);
+      return res.status(500).send(error.toString());
     }
   },
   put: async (req, res) => {
@@ -36,7 +38,8 @@ let UserEndpoints = {
       const updatedUser = await User.findById(id);
       return res.status(200).json(updatedUser);
     } catch (error) {
-      return res.status(500).send("An unknown error occured.");
+      console.error(error);
+      return res.status(500).send(error.toString());
     }
   },
   delete: async (req, res) => {
@@ -45,7 +48,8 @@ let UserEndpoints = {
       const deletedUser = await User.findByIdAndDelete(id);
       return res.status(200).json(deletedUser);
     } catch (error) {
-      return res.status(500).send("An unknown error occured.");
+      console.error(error);
+      return res.status(500).send(error.toString());
     }
   },
 };
