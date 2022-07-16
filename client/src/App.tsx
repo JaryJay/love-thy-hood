@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
   Navbar,
   FeedPage,
-  DirectMessages,
   Post,
   Profile,
   LoginButton,
@@ -21,7 +20,6 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Feed />} />
-        <Route path="/messages" element={<DirectMessages />} />
         <Route path="/post" element={<Post />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
