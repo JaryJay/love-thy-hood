@@ -20,9 +20,7 @@ const App = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [currentUser, setCurrentUser] = useState<UserType>();
 
-  useEffect(() => {}, []);
-
-  if (isAuthenticated) {
+  useEffect(() => {
     ApiDataService.getAllUsers().then((response) => {
       setCurrentUser(
         response.filter((u) => {
@@ -30,7 +28,9 @@ const App = () => {
         })[0]
       );
     });
+  }, []);
 
+  if (isAuthenticated) {
     return (
       <Router>
         <LogoutButton />
