@@ -7,24 +7,32 @@ import {
   LoginButton,
   LogoutButton,
 } from "./components";
+import { useAuth0 } from "@auth0/auth0-react";
 import "./App.css";
 
 /**
  * App routes.
  */
 const App = () => {
-  return (
-    <Router>
-      <LoginButton />
-      <LogoutButton />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<FeedPage />} />
-        <Route path="/post" element={<PostPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-      </Routes>
-    </Router>
-  );
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  console.log(isAuthenticated);
+
+  if (isAuthenticated) {
+    return (
+      <Router>
+        <LoginButton />
+        <LogoutButton />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<FeedPage />} />
+          <Route path="/post" element={<PostPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+        </Routes>
+      </Router>
+    );
+  } else {
+    return <div>bruh</div>;
+  }
 };
 
 export default App;
