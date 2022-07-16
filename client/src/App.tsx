@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
   Navbar,
@@ -8,6 +9,7 @@ import {
   LogoutButton,
 } from "./components";
 import { useAuth0 } from "@auth0/auth0-react";
+import UserType from "./types/user.type";
 import ApiDataService from "./services/api.service";
 import "./App.css";
 
@@ -16,15 +18,19 @@ import "./App.css";
  */
 const App = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
+  const [currentUser, setCurrentUser] = useState<UserType>();
+
+  useEffect(() => {}, []);
 
   if (isAuthenticated) {
     ApiDataService.getAllUsers().then((response) => {
-      console.log(
+      setCurrentUser(
         response.filter((u) => {
           return u.email === user!.email;
-        })
+        })[0]
       );
     });
+
     return (
       <Router>
         <LogoutButton />
