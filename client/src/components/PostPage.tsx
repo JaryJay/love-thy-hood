@@ -6,7 +6,7 @@ const PostPage = () => {
   const [formState, setFormState] = useState<PostType>({
     files: [],
     caption: "",
-    user: "62d267f774cd14b50d999ea6",
+    user: "62d267f774cd14b50d999ea6", // REPLACE WITH ACTUAL USER ID
     likes: [],
     comments: [],
   });
@@ -27,7 +27,7 @@ const PostPage = () => {
   };
 
   return (
-    <div className="w-screen h-screen gradient-1 text-white font-sans font-semibold">
+    <div className="h-screen gradient-1 text-white font-sans font-semibold">
       <div className="flex justify-between md:p-20 sm:p-10 w-full">
         <div className="flex-1 w-1/2 mr-20 my-8">
           <span className="text-8xl">Post it.</span>

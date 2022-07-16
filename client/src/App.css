@@ -14,6 +14,18 @@
     radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 1) 0px, transparent 50%);
 }
 
+.gradient-2 {
+  background-color: #ffdb99;
+  background-image:
+    radial-gradient(at 49% 61%, hsla(81, 77%, 75%, 1) 0px, transparent 50%),
+    radial-gradient(at 78% 63%, hsla(151, 92%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 69% 30%, hsla(219, 79%, 75%, 1) 0px, transparent 50%),
+    radial-gradient(at 7% 89%, hsla(46, 85%, 68%, 1) 0px, transparent 50%),
+    radial-gradient(at 53% 67%, hsla(306, 99%, 65%, 1) 0px, transparent 50%),
+    radial-gradient(at 17% 32%, hsla(143, 60%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 40%, hsla(10, 66%, 64%, 1) 0px, transparent 50%);
+}
+
 .glass-morphism-1 {
   /* From https://css.glass */
   background: rgba(41, 41, 41, 0.38);

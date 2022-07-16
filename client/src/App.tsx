@@ -20,13 +20,12 @@ const App = () => {
   if (isAuthenticated) {
     return (
       <Router>
-        <LoginButton />
         <LogoutButton />
         <Navbar />
         <Routes>
           <Route path="/" element={<FeedPage />} />
           <Route path="/post" element={<PostPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile" element={<ProfilePage user={null} />} />
         </Routes>
       </Router>
     );
