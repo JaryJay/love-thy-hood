@@ -1,5 +1,13 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Navbar, Feed, DirectMessages, Post, Profile } from "./components";
+import {
+  Navbar,
+  Feed,
+  DirectMessages,
+  Post,
+  Profile,
+  LoginButton,
+  LogoutButton,
+} from "./components";
 import "./App.css";
 
 /**
@@ -8,12 +16,14 @@ import "./App.css";
 const App = () => {
   return (
     <Router>
+      <LoginButton />
+      <LogoutButton />
       <Navbar />
       <Routes>
         <Route path="/" element={<Feed />} />
-        <Route path='/DirectMessages' element={<DirectMessages />} />
-        <Route path='/Post' element={<Post />} />
-        <Route path='/Profile' element={<Profile />} />
+        <Route path="/messages" element={<DirectMessages />} />
+        <Route path="/post" element={<Post />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );
