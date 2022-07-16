@@ -11,9 +11,9 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Feed />} />
-        <Route path='/DirectMessages' element={<DirectMessages />} />
-        <Route path='/Post' element={<Post />} />
-        <Route path='/Profile' element={<Profile />} />
+        <Route path="/messages" element={<DirectMessages />} />
+        <Route path="/post" element={<Post />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );
