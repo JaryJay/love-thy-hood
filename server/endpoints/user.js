@@ -24,9 +24,9 @@ let UserEndpoints = {
     try {
       const newUser = new User({ ...req.body });
       const allUsers = await User.find();
-      if (allUsers.filter(u => u.name === newUser.name).length) {
-        throw "Duplicate user";
-      }
+      if (allUsers.filter(u => u.name === newUser.name).length) throw "Duplicate user";
+      if (allUsers.filter(u => u.email === newUser.email).length) throw "Duplicate email";
+      if (allUsers.filter(u => u._id === newUser._id).length) throw "Duplicate id, what the heck";
       console.log(newUser);
       const insertedUser = await newUser.save();
       return res.status(201).json(insertedUser);
