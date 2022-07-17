@@ -1,12 +1,9 @@
-import React, { useState, useContext } from "react";
-import UserType from "../types/user.type";
-import { FaUser } from "react-icons/fa";
+import React, { useContext, useEffect } from "react";
 import { UserContext } from "../contexts/UserContext";
 import pfp from "./pfp.png";
 
 const ProfilePage = () => {
-  const [user, setUser] = useContext(UserContext);
-  const [profile, setProfile] = useState<UserType>();
+  const user = useContext(UserContext);
 
   return (
     <div className="gradient-2 h-screen">
@@ -17,39 +14,152 @@ const ProfilePage = () => {
           width: 600,
           height: 250,
         }}
-      >
-        {/* Profile Picture */}
-        <div className="absolute top-0 bottom-0 left-0" style={{width: "250px"}}>
-          <div style={{
+      />
+      <form>
+        <input
+          type="text"
+          value="name"
+          style={{
+            fontWeight: "bold",
+            backgroundColor: 'rgba(0,0,0,0)',
+            display: "flex",
+            fontSize: 30,
             position: "absolute",
-            top: "10%",
-            bottom: "10%",
-            left: "10%",
-            right: "10%",
-          }}>
-            <img src={pfp} alt="profile picture" />
-          </div>
-        </div>
-        {/* Details */}
-        <div className="absolute" style={{top: 0, bottom: 0, left: "250px", right: 0}}>
-          <form>
-            <input type="text" value="Name" className="text-center bg-transparent text-3xl mb-3"/>
-            <br />
-            <label className="bio-label">Pronouns:</label>
-            <input type="text" value="pronoun" className="bio-input"/>
-            <br />
-            <label className="bio-label">Bio:</label>
-            <input type="text" value="bio" className="bio-input"/>
-            <br />
-            <label className="bio-label">Region/Country:</label>
-            <input type="text" value="region" className="bio-input"/>
-            <br />
-            <label className="bio-label">Interests:</label>
-            <input type="text" value="Interests" className="bio-input"/>
-            <br />
-          </form>
-        </div>
-      </div>
+            top: "25%",
+            left: "20%",
+          }}
+        />
+        <label
+          style={{
+            display: "flex",
+            color: "black",
+            fontSize: 20,
+            position: "absolute",
+            textAlign: "left",
+            top: "30%",
+            left: "20%",
+          }}
+        >
+          <br />
+          Pronouns:
+        </label>
+        <input
+          type="text"
+          value="pronoun"
+          style={{
+            backgroundColor: 'rgba(0,0,0,0)',
+            display: "flex",
+            position: "absolute",
+            top: "33.6%",
+            left: "27%",
+            fontSize: 20,
+            height: 30,
+          }}
+        />
+        <label
+          style={{
+            display: "flex",
+            color: "black",
+            fontSize: 20,
+            position: "absolute",
+            textAlign: "left",
+            top: "35%",
+            left: "20%",
+          }}
+        >
+          <br />
+          Bio:
+        </label>
+        <input
+          type="text"
+          value="bio"
+          style={{
+            backgroundColor: 'rgba(0,0,0,0)',
+            display: "flex",
+            position: "absolute",
+            textAlign: "left",
+            top: "38.65%",
+            left: "23%",
+            fontSize: 20,
+            height: 30,
+          }}
+        />
+
+        <label
+          style={{
+            display: "flex",
+            color: "black",
+            fontSize: 20,
+            position: "absolute",
+            textAlign: "left",
+            top: "40%",
+            left: "20%",
+          }}
+        >
+          <br />
+          Region/Country:
+        </label>
+        <input
+          type="text"
+          value="region"
+          style={{
+            backgroundColor: 'rgba(0,0,0,0)',
+            display: "flex",
+            position: "absolute",
+            textAlign: "left",
+            top: "43.65%",
+            left: "31%",
+            fontSize: 20,
+            height: 30,
+          }}
+        />
+
+        <label
+          style={{
+            display: "flex",
+            color: "black",
+            fontSize: 20,
+            position: "absolute",
+            textAlign: "left",
+            top: "45%",
+            left: "20%",
+          }}
+        >
+          <br />
+          Interests:
+        </label>
+        <input
+          type="text"
+          value="Interests"
+          style={{
+            backgroundColor: 'rgba(0,0,0,0)',
+            display: "flex",
+            position: "absolute",
+            textAlign: "left",
+            top: "48.65%",
+            left: "27%",
+            fontSize: 20,
+            height: 30,
+          }}
+        />
+
+        <label
+          style={{
+            display: "flex",
+            color: "black",
+            fontSize: 25,
+            position: "absolute",
+            fontWeight: "bold",
+            textAlign: "left",
+            top: "55%",
+            left: "20%",
+          }}
+        >
+          <br />
+          Posts
+        </label>
+
+      </form>
     </div>
   );
 };

@@ -26,6 +26,7 @@ const FeedPage = () => {
   return (
     // Members list in your neighborhood
 
+
     // Posts
     <div className="gradient-3 h-auto">
       <div className="m-auto w-1/3">
@@ -35,14 +36,15 @@ const FeedPage = () => {
             postsState.map((postsState, i) => (
               <div>
                 <PostComponent post={postsState} />
-                <br />
-                <br />
-              </div>
-            ))
-          }
-        </ul>
-      </div>
+              <br />
+              <br />
+            </div>
+          ))
+        }
+      </ul>
     </div>
+  </div>
+
   );
 };
 
