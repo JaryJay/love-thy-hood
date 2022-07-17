@@ -18,9 +18,12 @@ const PostComponent = ({ post, userName }: { post: Post, userName: string }) => 
     <li className="p-3 border-black border-2 border-solid rounded-lg">
       <p className="mb-3">{userName}</p>
       <img src={post.images[0]} alt="post" />
-      <p className="text-center px-5 rounded-md border-4 border-green-500 border-solid">{post.caption}</p>
+      {/* Caption */}
+      <p className="px-5 rounded-md border-4 border-green-500 border-solid">{post.caption}</p>
       <div className="px-5 borde width-5">
-        <span className="m-1">{post.likes.includes(post.user) ? <AiFillHeart /> : <AiOutlineHeart />}</span>
+        {/* Like button */}
+        <span className="mt-px">{post.likes.includes(post.user) ? <AiFillHeart /> : <AiOutlineHeart />}</span>
+        {/* Comments */}
         <CommentComponent text="Hello world" commenter="Your Mom" />
       </div>
     </li>
