@@ -57,3 +57,20 @@
   -webkit-backdrop-filter: blur(10.2px);
   border: 1px solid rgba(0, 0, 0, 0.42);
 }
+
+.bio-label {
+  display: inline-block;
+  font-size: 20px;
+  margin-bottom: 15px;
+  width: 50%;
+}
+
+.bio-input {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 50%;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 7px;
+  font-size: 20px;
+}
