@@ -11,12 +11,15 @@ class ApiDataService {
     const n = await this.getNeighbourhood(neighbourhoodId);
     const newUser = { ...user, points: user.points + points };
     const newNeighbourhood: Neighbourhood = { ...n, points: n.points + points };
+    delete newUser._id;
+    delete newNeighbourhood._id;
     await this.updateUser(userId, newUser);
     await this.updateNeighbourhood(neighbourhoodId, newNeighbourhood);
   }
   async makeComment(postId: string, comment: Comment) {
     const post = await this.getPost(postId);
     post.comments.push(comment);
+    delete post._id;
     await this.updatePost(postId, post);
   }
   async createUrlForAddingImage() {

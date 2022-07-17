@@ -61,17 +61,20 @@ const CreateUserPage = ({ onSubmit }: { onSubmit: Function }) => {
   }
 
   return (
-    <div>
-      <label>Select neighbourhood
-        <select name="neighbourhoods" id="neighbourhoods" defaultValue={selected} onChange={e => setSelected(e.target.value)}>
-          {neighbourhoods.map(n => (<option value={n._id} key={n._id!}>{n.name}</option>))}
-        </select>
-      </label>
-      <button onClick={handleJoinNeighbourhood}>Join</button>
-      <label>Or create a new one
-        <input name="newNeighbourhoodName" value={newName} onChange={e => setNewName(e.target.value)} />
-      </label>
-      <button onClick={handleCreateNewNeighbourhood}>Create</button>
+    <div className="gradient-1 h-screen p-20">
+      <div className="glass-morphism-1 p-12">
+        <label>Select neighbourhood
+          <select name="neighbourhoods" id="neighbourhoods" defaultValue={selected} onChange={e => setSelected(e.target.value)}>
+            {neighbourhoods.map(n => (<option value={n._id} key={n._id!}>{n.name}</option>))}
+          </select>
+        </label>
+        <button onClick={handleJoinNeighbourhood}>Join</button>
+        <br />
+        <label>Or create a new one
+          <input name="newNeighbourhoodName" value={newName} onChange={e => setNewName(e.target.value)} />
+        </label>
+        <button onClick={handleCreateNewNeighbourhood}>Create</button>
+      </div>
     </div>
   )
 };
