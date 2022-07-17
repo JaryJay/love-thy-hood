@@ -19,7 +19,7 @@ const FeedPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     const getPosts = async () => {
-      const posts: Post[] = await ApiDataService.getPosts();
+      const posts: Post[] = await (await ApiDataService.getPosts()).reverse();
       setPostsState(posts);
     };
     getPosts();
