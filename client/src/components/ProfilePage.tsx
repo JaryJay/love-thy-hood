@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-import { FaUser } from "react-icons/fa";
 import { UserContext } from "../contexts/UserContext";
 import pfp from "./pfp.png";
 
@@ -25,12 +24,13 @@ const ProfilePage = () => {
           type="text"
           value="name"
           style={{
+            fontWeight: "bold",
+            backgroundColor: 'rgba(0,0,0,0)',
             display: "flex",
             fontSize: 30,
             position: "absolute",
-            textAlign: "left",
             top: "25%",
-            left: "40%",
+            left: "42%",
           }}
         />
         <label
@@ -41,7 +41,7 @@ const ProfilePage = () => {
             position: "absolute",
             textAlign: "left",
             top: "30%",
-            left: "40%",
+            left: "42%",
           }}
         >
           <br />
@@ -51,11 +51,11 @@ const ProfilePage = () => {
           type="text"
           value="pronoun"
           style={{
+            backgroundColor: 'rgba(0,0,0,0)',
             display: "flex",
             position: "absolute",
-            textAlign: "left",
-            top: "33.8%",
-            left: "47%",
+            top: "33.6%",
+            left: "49%",
             fontSize: 20,
             height: 30,
           }}
@@ -68,7 +68,7 @@ const ProfilePage = () => {
             position: "absolute",
             textAlign: "left",
             top: "35%",
-            left: "40%",
+            left: "42%",
           }}
         >
           <br />
@@ -78,11 +78,12 @@ const ProfilePage = () => {
           type="text"
           value="bio"
           style={{
+            backgroundColor: 'rgba(0,0,0,0)',
             display: "flex",
             position: "absolute",
             textAlign: "left",
-            top: "38.9%",
-            left: "43%",
+            top: "38.65%",
+            left: "45%",
             fontSize: 20,
             height: 30,
           }}
@@ -96,7 +97,7 @@ const ProfilePage = () => {
             position: "absolute",
             textAlign: "left",
             top: "40%",
-            left: "40%",
+            left: "42%",
           }}
         >
           <br />
@@ -106,11 +107,12 @@ const ProfilePage = () => {
           type="text"
           value="region"
           style={{
+            backgroundColor: 'rgba(0,0,0,0)',
             display: "flex",
             position: "absolute",
             textAlign: "left",
-            top: "44%",
-            left: "51%",
+            top: "43.65%",
+            left: "52.5%",
             fontSize: 20,
             height: 30,
           }}
@@ -124,7 +126,7 @@ const ProfilePage = () => {
             position: "absolute",
             textAlign: "left",
             top: "45%",
-            left: "40%",
+            left: "42%",
           }}
         >
           <br />
@@ -134,11 +136,12 @@ const ProfilePage = () => {
           type="text"
           value="Interests"
           style={{
+            backgroundColor: 'rgba(0,0,0,0)',
             display: "flex",
             position: "absolute",
             textAlign: "left",
-            top: "49.1%",
-            left: "48%",
+            top: "48.65%",
+            left: "48.25%",
             fontSize: 20,
             height: 30,
           }}
@@ -153,12 +156,13 @@ const ProfilePage = () => {
             fontWeight: "bold",
             textAlign: "left",
             top: "55%",
-            left: "10%",
+            left: "20%",
           }}
         >
           <br />
           Posts
         </label>
+
       </form>
     </div>
   );

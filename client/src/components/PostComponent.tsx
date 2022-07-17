@@ -7,6 +7,7 @@ import userEvent from '@testing-library/user-event';
 import { Agent } from 'https';
 import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
 
+
 const CommentComponent = (props: Comment) => {
   return (
     <p><strong>{props.commenter}:</strong> {props.text}</p>
@@ -26,7 +27,7 @@ const PostComponent = ({ post, userName }: { post: Post, userName: string }) => 
         </p>
         <img src={post.files[0]} alt="post" />
         <br />
-        <p className="text-center px-5 rounded-md border-2 border-black">{post.caption}</p>
+        <p className="text-center px-5 rounded-md" style ={{fontWeight:"bold"}}>{post.caption}</p>
         <br />
         <div className="px-5 width-5">
           <CommentComponent text="Hello world" commenter="Your Mom" />
