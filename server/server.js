@@ -1,3 +1,5 @@
+import { generateUploadURL } from './s3.js'
+
 require("dotenv").config({ path: "./config.env" });
 const express = require("express");
 const mongoose = require("mongoose");
