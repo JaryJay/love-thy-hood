@@ -6,8 +6,8 @@ const randomBytes = promisify(crypto.randomBytes)
 
 dotenv.config()
 
-const region = "us-west-2"; // REPLACE ME
-const bucketName = "direct-upload-s3-bucket-thing"; // REPLACE ME
+const region = "us-east-2";
+const bucketName = "neighbourhood-image-uploads";
 const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
 const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
 
