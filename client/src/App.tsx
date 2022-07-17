@@ -12,6 +12,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import UserType from "./types/user.type";
 import ApiDataService from "./services/api.service";
 import "./App.css";
+import { UserContext } from "./contexts/UserContext";
 
 /**
  * App routes.
@@ -29,19 +30,22 @@ const App = () => {
           })[0]
         );
       });
+      console.log(currentUser);
     }
   }, [isAuthenticated]);
 
   if (isAuthenticated) {
     return (
       <Router>
-        <LogoutButton />
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<FeedPage />} />
-          <Route path="/post" element={<PostPage />} />
-          <Route path="/profile" element={<ProfilePage user={null} />} />
-        </Routes>
+        <UserContext.Provider value={{ ...currentUser! }}>
+          <LogoutButton />
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<FeedPage />} />
+            <Route path="/post" element={<PostPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+          </Routes>
+        </UserContext.Provider>
       </Router>
     );
   } else {

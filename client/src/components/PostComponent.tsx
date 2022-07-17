@@ -37,4 +37,4 @@ const PostComponent = ({ post, userName }: { post: Post, userName: string }) => 
   );
 }
 
-export default PostComponent
+export default PostComponent;
