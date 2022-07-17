@@ -17,6 +17,7 @@ const FeedPage = () => {
   const [postsState, setPostsState] = useState<Post[]>([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const getPosts = async () => {
       const posts: Post[] = await ApiDataService.getPosts();
       setPostsState(posts);
@@ -26,7 +27,6 @@ const FeedPage = () => {
 
   return (
     // Members list in your neighborhood
-
 
     // Posts
     <div className="gradient-3 h-auto flex">
@@ -48,9 +48,9 @@ const FeedPage = () => {
         </ul>
       </div>
       <div className="flex-1 w-1/4">
-        <UserLeaderboard /></div>
+        <UserLeaderboard />
+      </div>
     </div>
-
   );
 };
 

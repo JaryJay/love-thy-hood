@@ -1,9 +1,15 @@
-import { ChangeEvent, useContext, useState } from "react";
+import { ChangeEvent, useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import ApiDataService from "../services/api.service";
 import Post from "../types/post.type";
 import { UserContext } from "../contexts/UserContext";
 
 const PostPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const navigate = useNavigate();
   const [user, setUser] = useContext(UserContext);
 
   const [files, setFiles] = useState<File[]>([]);
@@ -47,6 +53,7 @@ const PostPage = () => {
         newFormState
       );
       ApiDataService.addPoints(formState.user, 10);
+      navigate("/");
     } else {
       console.log("nope", formState);
     }
