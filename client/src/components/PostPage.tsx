@@ -4,7 +4,7 @@ import Post from "../types/post.type";
 import { UserContext } from "../contexts/UserContext";
 
 const PostPage = () => {
-  const user = useContext(UserContext);
+  const [user, setUser] = useContext(UserContext);
 
   const [files, setFiles] = useState<File[]>([]);
 
@@ -31,7 +31,11 @@ const PostPage = () => {
       const urls = [];
       for (const file of files) {
         let url = await ApiDataService.createUrlForAddingImage();
-        await fetch(url, { method: "PUT", headers: { "Content-Type": "multipart/form-data" }, body: file });
+        await fetch(url, {
+          method: "PUT",
+          headers: { "Content-Type": "multipart/form-data" },
+          body: file,
+        });
 
         url = url.split("?")[0];
         urls.push(url);
@@ -39,9 +43,12 @@ const PostPage = () => {
       const newFormState = { ...formState, files: urls };
       setFormState(newFormState);
       // Only post if caption and user are valid
-      const post: Post = await ApiDataService.createPost(formState.user, newFormState);
+      const post: Post = await ApiDataService.createPost(
+        formState.user,
+        newFormState
+      );
     } else {
-      console.log("nope", formState)
+      console.log("nope", formState);
     }
   };
 
@@ -79,16 +86,22 @@ const PostPage = () => {
             />
             <br />
             <div className="mt-4">
-              {
-                canSubmit() ?
-                  (<button onClick={handleSubmission}
-                    className="rounded-md border-orange-400 border-2 py-2 px-8
-                  text-orange-400 hover:text-white hover:bg-orange-400 transition-all">Post</button>)
-                  :
-                  (<button
-                    className="rounded-md border-gray-400 border-2 py-2 px-8
-                  text-slate-400 transition-all cursor-not-allowed">Post</button>)
-              }
+              {canSubmit() ? (
+                <button
+                  onClick={handleSubmission}
+                  className="rounded-md border-orange-400 border-2 py-2 px-8
+                  text-orange-400 hover:text-white hover:bg-orange-400 transition-all"
+                >
+                  Post
+                </button>
+              ) : (
+                <button
+                  className="rounded-md border-gray-400 border-2 py-2 px-8
+                  text-slate-400 transition-all cursor-not-allowed"
+                >
+                  Post
+                </button>
+              )}
             </div>
           </div>
         </div>

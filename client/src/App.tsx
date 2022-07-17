@@ -38,7 +38,6 @@ const App = () => {
     return (
       <Router>
         <UserContext.Provider value={[currentUser, setCurrentUser]}>
-          <LogoutButton />
           <Navbar />
           <Routes>
             <Route path="/" element={<FeedPage />} />
@@ -52,7 +51,6 @@ const App = () => {
     return (
       <div>
         <LoginButton />
-        <LogoutButton />
       </div>
     );
   }

@@ -6,7 +6,6 @@ import pfp from "./pfp.png";
 
 const ProfilePage = () => {
   const [user, setUser] = useContext(UserContext);
-  console.log(user);
   const [profile, setProfile] = useState<UserType>();
 
   return (
