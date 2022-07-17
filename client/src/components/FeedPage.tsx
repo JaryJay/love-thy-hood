@@ -10,15 +10,6 @@ import post1 from "../assets/1.png"
 import post2 from "../assets/2.png"
 import post3 from "../assets/3.png"
 
-// export interface Post {
-//   images: string[],
-//   caption: string,
-//   from: string,
-
-//   likes: User[],
-//   comments: string[],
-// }
-
 
 const FeedPage = () => {
   const user = useContext(UserContext);
