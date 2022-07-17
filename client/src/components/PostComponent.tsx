@@ -18,19 +18,19 @@ const PostComponent = ({ post, userName }: { post: Post, userName: string }) => 
     <div>
       <br></br>
       <li className="p-3 border-black glass-morphism-2 border-2 border-solid rounded-lg">
-        <p className="mb-3" style={{fontWeight:"bold"}}>
+        <p className="mb-3" style={{ fontWeight: "bold" }}>
           {userName}
-          <span className="m-1" style={{position:"absolute", right:"20px"}}>
-            {post.likes.includes(post.user) ? <AiFillHeart/> : <AiOutlineHeart/>} 
+          <span className="m-1" style={{ position: "absolute", right: "20px" }}>
+            {post.likes.includes(post.user) ? <AiFillHeart /> : <AiOutlineHeart />}
           </span>
         </p>
-        <img src={post.images[0]} alt="post" />
-        <br/>
+        <img src={post.files[0]} alt="post" />
+        <br />
         <p className="text-center px-5 rounded-md border-2 border-black">{post.caption}</p>
-        <br/>
+        <br />
         <div className="px-5 width-5">
           <CommentComponent text="Hello world" commenter="Your Mom" />
-          <br/>
+          <br />
         </div>
       </li>
     </div>
