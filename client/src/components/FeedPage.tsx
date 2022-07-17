@@ -4,6 +4,7 @@ import Post from "../types/post.type";
 
 import { UserContext } from "../contexts/UserContext";
 import ApiDataService from "../services/api.service";
+import { NeighbourhoodLeaderboard } from ".";
 
 // Import images
 import post1 from "../assets/1.png";
@@ -28,22 +29,26 @@ const FeedPage = () => {
 
 
     // Posts
-    <div className="gradient-3 h-auto">
-      <div className="m-auto w-1/3">
+    <div className="gradient-3 h-auto flex">
+      <div className="flex-1 w-1/4">
+        <NeighbourhoodLeaderboard />
+      </div>
+      <div className="flex-1 w-1/2">
         <ul>
           {
             // Render each post as a component based on the postsState array
             postsState.map((postsState, i) => (
               <div>
                 <PostComponent post={postsState} />
-              <br />
-              <br />
-            </div>
-          ))
-        }
-      </ul>
+                <br />
+                <br />
+              </div>
+            ))
+          }
+        </ul>
+      </div>
+      <div className="flex-1 w-1/4"></div>
     </div>
-  </div>
 
   );
 };
