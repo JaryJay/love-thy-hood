@@ -49,7 +49,6 @@ const ProfilePage = () => {
             <br />
           </form>
         </div>
-        <label>Posts</label>
       </div>
     </div>
   );
