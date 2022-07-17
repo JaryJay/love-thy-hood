@@ -9,6 +9,11 @@ const uri = process.env.URI;
 app.use(cors());
 app.use(express.json());
 
+app.get('/s3Url', async (req, res) => {
+  const url = await generateUploadURL()
+  res.send({ url })
+})
+
 const Neighbourhoods = require("./endpoints/neighbourhood.js");
 app.get("/neighbourhoods", Neighbourhoods.getAll);
 app.get("/neighbourhoods/:id", Neighbourhoods.get);
