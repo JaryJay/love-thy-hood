@@ -81,7 +81,7 @@ const App = () => {
       <div className="gradient-3 h-screen">
         <img src={logo} alt="Logo" style={{position:"absolute", left:"33%", top:"10%"}}/>
         <br/> <br/> <br/> <br/> <br/> <br/>
-        <p style={{color:"black", fontSize:"40px", fontWeight:"bold", textAlign:"center"}}>NeighborHood</p>
+        <p style={{color:"black", fontSize:"35px", fontWeight:"bold", textAlign:"center"}}>Love Thy Neighbourhood</p>
         <button onClick={() => loginWithRedirect()} 
         className="duration-300 hover:bg-black border-black glass-morphism-1 border-2 border-solid rounded-lg px-2 py-2" 
         style={{color: "white", fontSize:"20px", position:'absolute', alignItems:"center",width:"300px", left:'40%',top:'60%'}}>Log In</button>
