@@ -12,7 +12,9 @@ const CreateUserPage = ({ onSubmit }: { onSubmit: Function }) => {
 
   useEffect(() => {
     const getNeighbourhoods = async () => {
-      setNeighbourhoods(await ApiDataService.getNeighbourhoods());
+      const fetch = await ApiDataService.getNeighbourhoods();
+      setNeighbourhoods(fetch);
+      setSelected(fetch.length ? fetch[0]._id! : "");
     }
     getNeighbourhoods();
   }, [])
@@ -64,7 +66,7 @@ const CreateUserPage = ({ onSubmit }: { onSubmit: Function }) => {
     <div className="gradient-1 h-screen md:p-40 lg:p-80 p-20 text-white">
       <div className="glass-morphism-1 p-12">
         <label><span className="text-white">Select neighbourhood </span>
-          <select name="neighbourhoods" id="neighbourhoods" defaultValue={selected} onChange={e => setSelected(e.target.value)} placeholder="Select neighbourhood" className="rounded-md my-1 px-5 py-1 w-full bg-gray-600 bg-opacity-20 border-none outline-none">
+          <select name="neighbourhoods" id="neighbourhoods" defaultValue={""} onChange={e => { console.log(e); setSelected(e.target.value) }} placeholder="Select neighbourhood" className="rounded-md my-1 px-5 py-1 w-full bg-gray-600 bg-opacity-20 border-none outline-none">
             {neighbourhoods.map(n => (<option value={n._id} key={n._id!}>{n.name}</option>))}
           </select>
         </label>
