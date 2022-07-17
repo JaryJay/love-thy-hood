@@ -17,7 +17,8 @@ const PostComponent = ({ post, userName }: { post: Post, userName: string }) => 
   return (
     <li className="p-3 border-black border-2 border-solid rounded-lg">
       <p className="mb-3">{userName}</p>
-      <img src={post.images[0]} alt="post" />
+      {post.files.length ? <img src={post.files[0]} alt="post" /> : "No image"}
+
       {/* Caption */}
       <p className="px-5 rounded-md border-4 border-green-500 border-solid">{post.caption}</p>
       <div className="px-5 borde width-5">
@@ -30,4 +31,4 @@ const PostComponent = ({ post, userName }: { post: Post, userName: string }) => 
   );
 }
 
-export default PostComponent
+export default PostComponent;

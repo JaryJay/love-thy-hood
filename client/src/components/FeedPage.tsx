@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import PostComponent from './PostComponent';
 import Post from '../types/post.type'
+
+import { UserContext } from "../contexts/UserContext";
+import ApiDataService from "../services/api.service";
 
 // Import images
 import post1 from "../assets/1.png"
@@ -18,22 +21,34 @@ import post3 from "../assets/3.png"
 
 
 const FeedPage = () => {
-  const [postsState, setPost] = useState<Post[]>([
+  const user = useContext(UserContext);
+
+  const [postsState, setPostsState] = useState<Post[]>([
     {
-      images: [post1],
+      files: [post1],
       caption: "Yo",
       user: "69",
       likes: [],
       comments: [],
     },
     {
-      images: [post2],
+      files: [post2],
       caption: "Happy Birthday [Ce][Sa]ra[h]!",
       user: "69",
       likes: [],
       comments: [{ commenter: "💯✨🎉", text: "ok then" }],
     }
   ]);
+
+  useEffect(() => {
+    const getPosts = async () => {
+      const posts: Post[] = await ApiDataService.getPosts();
+      setPostsState(posts);
+    };
+    getPosts();
+  }, [])
+
+
 
   return (
     // Members list in your neighborhood
@@ -45,7 +60,7 @@ const FeedPage = () => {
         {
           // Render each post as a component based on the postsState array
           postsState.map((postsState, i) => (
-            <div>
+            <div key={i}>
               <PostComponent
                 post={postsState}
                 userName={"Jay Ren"}

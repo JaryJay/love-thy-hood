@@ -2,7 +2,7 @@ import Comment from "./comment.type";
 
 export default interface Post {
     _id?: string,
-    images: string[],
+    files: string[],
     caption: string,
     user: string,
     likes: string[], // User ids

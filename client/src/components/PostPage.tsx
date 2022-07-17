@@ -4,7 +4,7 @@ import ApiDataService from "../services/api.service";
 
 const PostPage = () => {
   const [formState, setFormState] = useState<PostType>({
-    images: [],
+    files: [],
     caption: "",
     user: "62d30f87da5796e813f7820c", // REPLACE WITH ACTUAL USER ID
     likes: [],
