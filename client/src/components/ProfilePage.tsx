@@ -1,12 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { UserContext } from "../contexts/UserContext";
-import pfp from "./pfp.png";
 
 const ProfilePage = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const user = useContext(UserContext);
 
   return (
@@ -25,7 +20,7 @@ const ProfilePage = () => {
           value="name"
           style={{
             fontWeight: "bold",
-            backgroundColor: "rgba(0,0,0,0)",
+            backgroundColor: 'rgba(0,0,0,0)',
             display: "flex",
             fontSize: 30,
             position: "absolute",
@@ -51,7 +46,7 @@ const ProfilePage = () => {
           type="text"
           value="pronoun"
           style={{
-            backgroundColor: "rgba(0,0,0,0)",
+            backgroundColor: 'rgba(0,0,0,0)',
             display: "flex",
             position: "absolute",
             top: "33.6%",
@@ -78,7 +73,7 @@ const ProfilePage = () => {
           type="text"
           value="bio"
           style={{
-            backgroundColor: "rgba(0,0,0,0)",
+            backgroundColor: 'rgba(0,0,0,0)',
             display: "flex",
             position: "absolute",
             textAlign: "left",
@@ -107,7 +102,7 @@ const ProfilePage = () => {
           type="text"
           value="region"
           style={{
-            backgroundColor: "rgba(0,0,0,0)",
+            backgroundColor: 'rgba(0,0,0,0)',
             display: "flex",
             position: "absolute",
             textAlign: "left",
@@ -136,7 +131,7 @@ const ProfilePage = () => {
           type="text"
           value="Interests"
           style={{
-            backgroundColor: "rgba(0,0,0,0)",
+            backgroundColor: 'rgba(0,0,0,0)',
             display: "flex",
             position: "absolute",
             textAlign: "left",
@@ -162,6 +157,7 @@ const ProfilePage = () => {
           <br />
           Posts
         </label>
+
       </form>
     </div>
   );
