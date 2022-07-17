@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Post from "../types/post.type";
 import Comment from "../types/comment.type";
 import User from "../types/user.type";
@@ -11,6 +11,7 @@ import userEvent from "@testing-library/user-event";
 import { Agent } from "https";
 import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 import ApiDataService from "../services/api.service";
+import { UserContext } from "../contexts/UserContext";
 
 const CommentComponent = (props: Comment) => {
   return (
@@ -21,20 +22,13 @@ const CommentComponent = (props: Comment) => {
 };
 
 const PostComponent = ({ post }: { post: Post }) => {
-  const [userName, setUserName] = useState("");
-
-  useEffect(() => {
-    ApiDataService.getUser(post.user).then((response) => {
-      setUserName(response.name);
-    });
-  }, []);
-
+  const [user, setUser] = useContext(UserContext);
   return (
     <div>
       <br></br>
       <li className="p-3 border-black glass-morphism-2 border-2 border-solid rounded-lg">
         <p className="mb-3" style={{ fontWeight: "bold" }}>
-          {userName}
+          {user.name}
           <span className="m-1" style={{ position: "absolute", right: "20px" }}>
             {post.likes.includes(post.user) ? (
               <AiFillHeart />

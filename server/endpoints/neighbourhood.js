@@ -22,7 +22,11 @@ let NeighbourhoodEndpoints = {
   },
   post: async (req, res) => {
     try {
+      const allNeighbourhoods = await Neighbourhood.find();
       const newNeighbourhood = new Neighbourhood({ ...req.body });
+      if (allNeighbourhoods.filter(n => n.name === newNeighbourhood.name).length) {
+        throw "Duplicate name";
+      }
       const insertedNeighbourhood = await newNeighbourhood.save();
       return res.status(201).json(insertedNeighbourhood);
     } catch (error) {

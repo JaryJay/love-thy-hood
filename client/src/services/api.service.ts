@@ -51,6 +51,7 @@ class ApiDataService {
     const createdUser = (await http.post<User>(`/users`, user)).data;
     const n = await this.getNeighbourhood(neighbourhoodId);
     n.members.push(createdUser._id!);
+    delete n._id;
     await this.updateNeighbourhood(neighbourhoodId, n);
     return createdUser;
   }
@@ -60,9 +61,10 @@ class ApiDataService {
   async deleteUser(id: string) {
     console.log("Why are you deleting a user");
     const user = await this.getUser(id);
-    const neighbourhood = await this.getNeighbourhood(user.neighbourhood);
-    neighbourhood.members = neighbourhood.members.filter(m => m !== id);
-    await this.updateNeighbourhood(neighbourhood._id!, neighbourhood);
+    const n = await this.getNeighbourhood(user.neighbourhood);
+    n.members = n.members.filter(m => m !== id);
+    delete n._id;
+    await this.updateNeighbourhood(n._id!, n);
     return (await http.delete<User>(`/users/${id}`)).data;
   }
 
@@ -77,6 +79,7 @@ class ApiDataService {
     const post = (await http.post<Post>(`/posts`, data)).data;
     const user = await this.getUser(userId);
     user.posts.push(post._id!);
+    delete user._id;
     await this.updateUser(userId, user);
     return post;
   }
@@ -88,6 +91,7 @@ class ApiDataService {
     const userId = deletedPost.user;
     const user = await this.getUser(userId);
     user.posts = user.posts.filter(p => p !== deletedPost._id);
+    delete user._id;
     await this.updateUser(userId, user);
     return deletedPost;
   }
