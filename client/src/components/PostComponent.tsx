@@ -25,13 +25,12 @@ const PostComponent = ({ post, userName }: { post: Post, userName: string }) => 
             {post.likes.includes(post.user) ? <AiFillHeart /> : <AiOutlineHeart />}
           </span>
         </p>
-        <img src={post.files[0]} alt="post" />
-        <br />
-        <p className="text-center px-5 rounded-md" style ={{fontWeight:"bold"}}>{post.caption}</p>
-        <br />
-        <div className="px-5 width-5">
-          <CommentComponent text="Hello world" commenter="Your Mom" />
+        <img className="mb-3" src={post.files[0]} alt="post" />
+        <hr className="bg-black h-px border-none" />
+        <div>
+          <p className="mt-1 text-center px-5 rounded-md" style ={{fontWeight:"bold"}}>{post.caption}</p>
           <br />
+          <div className="px-5 width-5"><CommentComponent text="Hello world" commenter="Your Mom" /></div>
         </div>
       </li>
     </div>
