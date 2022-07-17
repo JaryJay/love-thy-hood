@@ -10,8 +10,13 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/s3Url', async (req, res) => {
-  const url = await generateUploadURL()
-  res.send({ url })
+  try {
+    const url = await generateUploadURL()
+    res.status(200).json({ url })
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error.toString());
+  }
 })
 
 const Neighbourhoods = require("./endpoints/neighbourhood.js");
