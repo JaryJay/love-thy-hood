@@ -19,6 +19,9 @@ class ApiDataService {
     post.comments.push(comment);
     await this.updatePost(postId, post);
   }
+  async createUrlForAddingImage() {
+    return (await http.get<any>("/s3Url")).data.url;
+  }
 
   async getNeighbourhoods() {
     return (await http.get<Array<Neighbourhood>>("/neighbourhoods")).data;
@@ -47,7 +50,7 @@ class ApiDataService {
     user.neighbourhood = neighbourhoodId;
     const createdUser = (await http.post<User>(`/users`, user)).data;
     const n = await this.getNeighbourhood(neighbourhoodId);
-    n.members.push(createdUser._id as string);
+    n.members.push(createdUser._id!);
     await this.updateNeighbourhood(neighbourhoodId, n);
     return createdUser;
   }
@@ -59,7 +62,7 @@ class ApiDataService {
     const user = await this.getUser(id);
     const neighbourhood = await this.getNeighbourhood(user.neighbourhood);
     neighbourhood.members = neighbourhood.members.filter(m => m !== id);
-    await this.updateNeighbourhood(neighbourhood._id as string, neighbourhood);
+    await this.updateNeighbourhood(neighbourhood._id!, neighbourhood);
     return (await http.delete<User>(`/users/${id}`)).data;
   }
 
@@ -73,7 +76,7 @@ class ApiDataService {
     data.user = userId;
     const post = (await http.post<Post>(`/posts`, data)).data;
     const user = await this.getUser(userId);
-    user.posts.push(post._id as string);
+    user.posts.push(post._id!);
     await this.updateUser(userId, user);
     return post;
   }

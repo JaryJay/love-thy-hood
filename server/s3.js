@@ -18,13 +18,15 @@ const s3 = new aws.S3({
     signatureVersion: 'v4'
 });
 
-module.exports = async function generateUploadURL() {
-    const rawBytes = await randomBytes(16)
-    const key = rawBytes.toString('hex')
+module.exports = {
+    generateUploadURL: async () => {
+        const rawBytes = await randomBytes(16)
+        const key = rawBytes.toString('hex')
 
-    return await s3.getSignedUrlPromise('putObject', {
-        Bucket: bucketName,
-        Key: key,
-        Expires: 15
-    })
+        return await s3.getSignedUrlPromise('putObject', {
+            Bucket: bucketName,
+            Key: key,
+            Expires: 15
+        })
+    }
 }
