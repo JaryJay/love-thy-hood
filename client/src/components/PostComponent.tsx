@@ -46,10 +46,6 @@ const PostComponent = ({ post }: { post: Post }) => {
           >
             {post.caption}
           </p>
-          <br />
-          <div className="px-5 width-5">
-            <CommentComponent text="Hello world" commenter="Your Mom" />
-          </div>
         </div>
       </li>
     </div>
