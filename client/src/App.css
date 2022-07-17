@@ -26,6 +26,18 @@
     radial-gradient(at 80% 40%, hsla(10, 66%, 64%, 1) 0px, transparent 50%);
 }
 
+.gradient-3 {
+  background-color: #94fc03;
+  background-image:
+    radial-gradient(at 49% 61%, hsla(185, 71%, 82%, 1) 0px, transparent 50%),
+    radial-gradient(at 78% 63%, hsla(66, 93%, 86%, 1) 0px, transparent 50%),
+    radial-gradient(at 69% 30%, hsla(138, 94%, 86%, 1) 0px, transparent 50%),
+    radial-gradient(at 7% 89%, hsla(248, 93%, 86%, 1) 0px, transparent 50%),
+    radial-gradient(at 53% 67%, hsla(34, 94%, 86%, 1) 0px, transparent 50%),
+    radial-gradient(at 17% 32%, hsla(143, 60%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 40%, hsla(3, 94%, 86%, 1) 0px, transparent 50%);
+}
+
 .glass-morphism-1 {
   /* From https://css.glass */
   background: rgba(41, 41, 41, 0.38);
@@ -34,4 +46,14 @@
   backdrop-filter: blur(10.2px);
   -webkit-backdrop-filter: blur(10.2px);
   border: 1px solid rgba(41, 41, 41, 0.42);
+}
+
+.glass-morphism-2 {
+  /* From https://css.glass */
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.2px);
+  -webkit-backdrop-filter: blur(10.2px);
+  border: 1px solid rgba(0, 0, 0, 0.42);
 }

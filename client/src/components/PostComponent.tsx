@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Post from '../types/post.type'
 import Comment from '../types/comment.type';
 import User from '../types/user.type'
-import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
+import { AiFillHeart, AiOutlineBorderLeft, AiOutlineHeart } from 'react-icons/ai'
 import userEvent from '@testing-library/user-event';
 import { Agent } from 'https';
 import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
@@ -15,15 +15,25 @@ const CommentComponent = (props: Comment) => {
 
 const PostComponent = ({ post, userName }: { post: Post, userName: string }) => {
   return (
-    <li className="p-3 border-black border-2 border-solid rounded-lg">
-      <p className="mb-3">{userName}</p>
-      <img src={post.images[0]} alt="post" />
-      <p className="text-center px-5 rounded-md border-4 border-green-500 border-solid">{post.caption}</p>
-      <div className="px-5 borde width-5">
-        <span className="m-1">{post.likes.includes(post.user) ? <AiFillHeart /> : <AiOutlineHeart />}</span>
-        <CommentComponent text="Hello world" commenter="Your Mom" />
-      </div>
-    </li>
+    <div>
+      <br></br>
+      <li className="p-3 border-black glass-morphism-2 border-2 border-solid rounded-lg">
+        <p className="mb-3" style={{fontWeight:"bold"}}>
+          {userName}
+          <span className="m-1" style={{position:"absolute", right:"20px"}}>
+            {post.likes.includes(post.user) ? <AiFillHeart/> : <AiOutlineHeart/>} 
+          </span>
+        </p>
+        <img src={post.images[0]} alt="post" />
+        <br/>
+        <p className="text-center px-5 rounded-md border-2 border-black">{post.caption}</p>
+        <br/>
+        <div className="px-5 width-5">
+          <CommentComponent text="Hello world" commenter="Your Mom" />
+          <br/>
+        </div>
+      </li>
+    </div>
   );
 }
 

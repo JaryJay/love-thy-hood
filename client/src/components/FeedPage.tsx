@@ -40,23 +40,24 @@ const FeedPage = () => {
 
 
     // Posts
-    <div className="m-auto w-1/3">
-      <ul>
-        {
-          // Render each post as a component based on the postsState array
-          postsState.map((postsState, i) => (
-            <div>
-              <PostComponent
-                post={postsState}
-                userName={"Jay Ren"}
-              />
-              <br /><br />
-            </div>
-          ))
-        }
-      </ul>
+    <div className='gradient-3 h-auto'>
+      <div className="m-auto w-1/3">
+        <ul>
+          {
+            // Render each post as a component based on the postsState array
+            postsState.map((postsState, i) => (
+              <div>
+                <PostComponent
+                  post={postsState}
+                  userName={"Jay Ren"}
+                />
+                <br /><br />
+              </div>
+            ))
+          }
+        </ul>
+      </div>
     </div>
-
 
   );
 };
