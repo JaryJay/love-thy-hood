@@ -1,4 +1,4 @@
-import { generateUploadURL } from './s3.js'
+const s3 = require('./s3.js');
 
 require("dotenv").config({ path: "./config.env" });
 const express = require("express");
@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.get('/s3Url', async (req, res) => {
   try {
-    const url = await generateUploadURL()
+    const url = await s3.generateUploadURL()
     res.status(200).json({ url })
   } catch (error) {
     console.log(error);
