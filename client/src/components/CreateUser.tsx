@@ -61,19 +61,19 @@ const CreateUserPage = ({ onSubmit }: { onSubmit: Function }) => {
   }
 
   return (
-    <div className="gradient-1 h-screen p-20">
+    <div className="gradient-1 h-screen md:p-40 lg:p-80 p-20 text-white">
       <div className="glass-morphism-1 p-12">
-        <label>Select neighbourhood
-          <select name="neighbourhoods" id="neighbourhoods" defaultValue={selected} onChange={e => setSelected(e.target.value)}>
+        <label><span className="text-white">Select neighbourhood </span>
+          <select name="neighbourhoods" id="neighbourhoods" defaultValue={selected} onChange={e => setSelected(e.target.value)} placeholder="Select neighbourhood" className="rounded-md my-1 px-5 py-1 w-full bg-gray-600 bg-opacity-20 border-none outline-none">
             {neighbourhoods.map(n => (<option value={n._id} key={n._id!}>{n.name}</option>))}
           </select>
         </label>
-        <button onClick={handleJoinNeighbourhood}>Join</button>
+        <button onClick={handleJoinNeighbourhood} className="border border-orange-400 hover:bg-orange-400 text-orange-400 hover:text-white transition-all p-2 px-4 m-1 rounded-md">Join</button>
         <br />
-        <label>Or create a new one
-          <input name="newNeighbourhoodName" value={newName} onChange={e => setNewName(e.target.value)} />
+        <label><span className="text-white">Or create a new one </span>
+          <input name="newNeighbourhoodName" value={newName} onChange={e => setNewName(e.target.value)} className="rounded-md my-1 px-5 py-1 w-full bg-gray-600 bg-opacity-20 border-none outline-none" />
         </label>
-        <button onClick={handleCreateNewNeighbourhood}>Create</button>
+        <button onClick={handleCreateNewNeighbourhood} className="border border-orange-400 hover:bg-orange-400 text-orange-400 hover:text-white transition-all p-2 px-4 m-1 rounded-md">Create</button>
       </div>
     </div>
   )
