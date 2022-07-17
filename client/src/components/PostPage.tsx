@@ -4,14 +4,14 @@ import Post from "../types/post.type";
 import { UserContext } from "../contexts/UserContext";
 
 const PostPage = () => {
-  const user = useContext(UserContext);
+  const [user, setUser] = useContext(UserContext);
 
   const [files, setFiles] = useState<File[]>([]);
 
   const [formState, setFormState] = useState<Post>({
     files: [],
     caption: "",
-    user: "user._id!", // REPLACE WITH ACTUAL USER ID
+    user: user._id!, // REPLACE WITH ACTUAL USER ID
     likes: [],
     comments: [],
   });
@@ -78,7 +78,7 @@ const PostPage = () => {
             />
             <br />
             <div className="mt-4">
-            {
+              {
                 canSubmit() ?
                   (<button onClick={handleSubmission}
                     className="rounded-md border-orange-400 border-2 py-2 px-8
