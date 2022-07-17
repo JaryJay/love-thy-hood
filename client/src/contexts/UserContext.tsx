@@ -5,4 +5,4 @@ const UserContext = createContext<
   [UserType, React.Dispatch<React.SetStateAction<UserType>>]
 >([{} as UserType, () => {}]);
 
-export { UserContext };
+export {UserContext};
