@@ -40,15 +40,18 @@ const FeedPage = () => {
 
 
     // Posts
-    <div className="w-1/2 bg-blue-500">
+    <div className="m-auto w-1/3">
       <ul>
         {
           // Render each post as a component based on the postsState array
           postsState.map((postsState, i) => (
-            <PostComponent
-              post={postsState}
-              userName={"userName"}
-            />
+            <div>
+              <PostComponent
+                post={postsState}
+                userName={"Jay Ren"}
+              />
+              <br /><br />
+            </div>
           ))
         }
       </ul>

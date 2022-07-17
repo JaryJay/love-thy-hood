@@ -15,25 +15,16 @@ const CommentComponent = (props: Comment) => {
 
 const PostComponent = ({ post, userName }: { post: Post, userName: string }) => {
   return (
-    <li>
+    <li className="p-3 border-black border-2 border-solid rounded-lg">
+      <p className="mb-3">{userName}</p>
       <img src={post.images[0]} alt="post" />
       <p className="text-center px-5 rounded-md border-4 border-green-500 border-solid">{post.caption}</p>
-      <p className="text-center px-5 borde width-5">Posted by: {userName}</p>
-      <div className="text-center px-5 borde width-5 bg-teal-500">
-        <span>{post.likes.includes(post.user) ? <AiFillHeart /> : <AiOutlineHeart />}</span>
-        <p>Comments:</p>
+      <div className="px-5 borde width-5">
+        <span className="m-1">{post.likes.includes(post.user) ? <AiFillHeart /> : <AiOutlineHeart />}</span>
         <CommentComponent text="Hello world" commenter="Your Mom" />
       </div>
-      <br /><br />
     </li>
   );
 }
 
 export default PostComponent
-
-// let object = {name="joe", age=50}
-// let object2 = {dog=}
-
-  //function( object: {age: string} ) {
-  //  let {age} = object;
-// console.log(age)

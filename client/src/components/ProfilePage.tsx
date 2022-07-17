@@ -10,7 +10,6 @@ const ProfilePage = ({ user }: { user: any }) => {
             {/* profile picture */}
             pfp
             <div className='w-8 h-8 border border-white p-1 rounded-full items-center justify-center text-center align-middle'>
-              <FaUser className='relative' />
             </div>
           </div>
           <div className='flex-1 w-4/5'>
