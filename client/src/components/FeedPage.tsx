@@ -4,7 +4,7 @@ import Post from "../types/post.type";
 
 import { UserContext } from "../contexts/UserContext";
 import ApiDataService from "../services/api.service";
-import { NeighbourhoodLeaderboard } from ".";
+import { NeighbourhoodLeaderboard, UserLeaderboard } from ".";
 
 // Import images
 import post1 from "../assets/1.png";
@@ -47,7 +47,8 @@ const FeedPage = () => {
           }
         </ul>
       </div>
-      <div className="flex-1 w-1/4"></div>
+      <div className="flex-1 w-1/4">
+        <UserLeaderboard /></div>
     </div>
 
   );
