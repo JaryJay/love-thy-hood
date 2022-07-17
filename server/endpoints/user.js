@@ -23,6 +23,10 @@ let UserEndpoints = {
   post: async (req, res) => {
     try {
       const newUser = new User({ ...req.body });
+      const allUsers = await User.find();
+      if (allUsers.filter(u => u.name === newUser.name).length) {
+        throw "Duplicate user";
+      }
       console.log(newUser);
       const insertedUser = await newUser.save();
       return res.status(201).json(insertedUser);
